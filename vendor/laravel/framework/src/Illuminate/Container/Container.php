@@ -582,7 +582,7 @@ class Container implements ArrayAccess, ContainerContract
      * @return mixed
      */
     public function make($abstract, array $parameters = [])
-    {
+    {  
         return $this->resolve($abstract, $parameters);
     }
 

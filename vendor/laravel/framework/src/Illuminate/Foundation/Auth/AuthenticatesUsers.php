@@ -27,9 +27,9 @@ trait AuthenticatesUsers
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function login(Request $request)
-    {
+    {  
         $this->validateLogin($request);
-
+ 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
@@ -63,6 +63,7 @@ trait AuthenticatesUsers
             $this->username() => 'required|string',
             'password' => 'required|string',
         ]);
+        
     }
 
     /**

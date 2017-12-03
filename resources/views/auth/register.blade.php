@@ -1,36 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.header')
+    @section('headercontent')
 
-@section('content')
-<div class="container">
+    <div class="page-header">
+        <h1 style="text-align: center;">
+            二战风云<small>阿登战役</small>
+        </h1>
+    </div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-
-                <div class="panel-body">
+        <div class="col-xs-12 ">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
+                     
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
+                            <div class="input-group input-group-lg loginInput">
+                                    <span class="input-group-addon">邮箱</span> <input id="email" type="email" class="form-control" placeholder="请输入注册账号" name="email" value="{{ old('email') }}" required>
+                            </div>
+                            <div>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -38,14 +24,12 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
+                            <div class="input-group input-group-lg loginInput">
+                                    <span class="input-group-addon">密码</span> <input id="password" type="password" class="form-control"  placeholder="请输入密码"  name="password" required>
+                            </div>
+                            <div>
+                                @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
@@ -54,24 +38,25 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <div class="input-group input-group-lg loginInput">
+                                    <span class="input-group-addon">验证</span>  <input id="password-confirm" type="password" class="form-control"  placeholder="再次输入密码"   name="password_confirmation" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
+                            <div class="col-xs-3  col-xs-offset-2">
+                                <span class="btn btn-info btn-lg leftBtn"><a href="{{ asset('login') }}" style="color:#fff">返回</a></span>                      
+                            </div>
+                            <div class="col-xs-3 col-xs-offset-1">                       
+                                <button type="submit" class="btn btn-lg btn-primary">
+                                    注册
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+           
         </div>
     </div>
-</div>
+
+
 @endsection
